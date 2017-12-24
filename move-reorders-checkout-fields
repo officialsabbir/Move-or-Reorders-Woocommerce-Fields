@@ -1,0 +1,38 @@
+
+
+// Move - ReOrder WooCommerce Checkout Fields @ WooCommerce Checkout Page
+ 
+add_filter( 'woocommerce_checkout_fields', 'sabbir_move_checkout_fields' );
+  
+function sabbir_move_checkout_fields( $fields ) {
+     
+  // Billing: move these around in the order you'd like
+     
+  $fields2['billing']['billing_first_name'] = $fields['billing']['billing_first_name'];
+  $fields2['billing']['billing_last_name']  = $fields['billing']['billing_last_name'];
+  $fields2['billing']['billing_address_1']  = $fields['billing']['billing_address_1'];
+  $fields2['billing']['billing_address_2']  = $fields['billing']['billing_address_2'];
+  $fields2['billing']['billing_city']       = $fields['billing']['billing_city'];
+  $fields2['billing']['billing_postcode']   = $fields['billing']['billing_postcode'];
+  $fields2['billing']['billing_state']      = $fields['billing']['billing_state'];
+  $fields2['billing']['billing_phone']    = $fields['billing']['billing_phone'];
+  $fields2['billing']['billing_country']    = $fields['billing']['billing_country'];
+  $fields2['billing']['billing_email']      = $fields['billing']['billing_email'];
+     
+  // Shipping: move these around in the order you'd like
+     
+  $fields2['shipping']['shipping_first_name'] = $fields['shipping']['shipping_first_name'];
+  $fields2['shipping']['shipping_last_name']  = $fields['shipping']['shipping_last_name'];
+  $fields2['shipping']['shipping_address_1']  = $fields['shipping']['shipping_address_1'];
+  $fields2['shipping']['shipping_address_2']  = $fields['shipping']['shipping_address_2'];
+  $fields2['shipping']['shipping_city']       = $fields['shipping']['shipping_city'];
+  $fields2['shipping']['shipping_postcode']   = $fields['shipping']['shipping_postcode'];
+  $fields2['shipping']['shipping_state']      = $fields['shipping']['shipping_state'];
+  $fields2['shipping']['shipping_country']    = $fields['shipping']['shipping_country'];
+     
+  $checkout_fields = array_merge( $fields, $fields2);
+  return $checkout_fields;
+}
+
+
+
